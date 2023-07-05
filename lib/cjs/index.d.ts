@@ -15,5 +15,6 @@ export declare const M_FILE = "file";
 export declare const M_DIR = "dir";
 export declare const M_LINK = "link";
 export declare const M_SPECIAL = "special";
+export type MobilettoEntryType = "file" | "dir" | "link" | "special";
 export declare const logger: import("winston").Logger;
 export { setLogLevel } from "./logger.js";

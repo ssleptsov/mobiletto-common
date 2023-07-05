@@ -90,5 +90,7 @@ export const M_DIR = "dir";
 export const M_LINK = "link";
 export const M_SPECIAL = "special";
 
+export type MobilettoEntryType = "file" | "dir" | "link" | "special"
+
 export const logger = log;
 export { setLogLevel } from "./logger.js";
