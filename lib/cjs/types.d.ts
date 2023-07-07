@@ -21,9 +21,9 @@ export type MobilettoListOptions = {
     visitor?: MobilettoVisitor;
 };
 export type MobilettoReadFunc = {
-    next: () => {
+    next: () => Promise<{
         value: Buffer;
-    };
+    }>;
 };
 export type MobilettoByteCounter = {
     count: number;
