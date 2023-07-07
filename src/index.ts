@@ -7,6 +7,7 @@ export class MobilettoError extends Error {
     constructor(message: string, err?: Error) {
         super(`${message}: ${err ? err : ""}`);
         this.err = err;
+        this.stack = err && err.stack ? err.stack : new Error().stack;
         const actualProto = new.target.prototype;
         if (Object.setPrototypeOf) {
             Object.setPrototypeOf(this, actualProto);
@@ -22,6 +23,7 @@ export class MobilettoNotFoundError extends Error {
     private readonly id: any;
     constructor(id: any) {
         super(`MobilettoNotFoundError: ${id}`);
+        this.stack = new Error().stack;
         const actualProto = new.target.prototype;
         if (Object.setPrototypeOf) {
             Object.setPrototypeOf(this, actualProto);
