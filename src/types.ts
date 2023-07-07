@@ -23,7 +23,7 @@ export type MobilettoListOptions = {
     visitor?: MobilettoVisitor;
 };
 
-export type MobilettoReadFunc = { next: () => Promise<{ value: Buffer }> };
+export type MobilettoReadFunc = { next: () => Promise<{ value: Buffer }> | { value: Buffer } };
 export type MobilettoByteCounter = { count: number };
 
 export type MobilettoReadable = ReadStream | Transform | Readable;
