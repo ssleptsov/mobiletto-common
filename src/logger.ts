@@ -5,7 +5,9 @@ export const logger = winston.createLogger({
     level: process.env.MOBILETTO_LOG_LEVEL || "error",
     format: winston.format.combine(
         winston.format.timestamp({ format: "YYYY-MM-DD HH:mm:ss.SSS" }),
+        /* eslint-disable @typescript-eslint/no-explicit-any */
         winston.format.printf((info: any) => {
+            /* eslint-enable @typescript-eslint/no-explicit-any */
             return `${info.timestamp} [${info.level.toUpperCase()}] ${info.message}`;
         })
     ),
@@ -26,7 +28,9 @@ export const setLogLevel = (level: string) => {
     logger.level = level;
 };
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const setLogTransports = (transports: any[]) => {
+    /* eslint-enable @typescript-eslint/no-explicit-any */
     logger.transports.splice(0, logger.transports.length);
     logger.transports.push(...transports);
 };

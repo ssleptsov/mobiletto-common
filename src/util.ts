@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReadStream } from "fs";
 import { Readable, Transform } from "stream";
 import { logger } from "./logger.js";
