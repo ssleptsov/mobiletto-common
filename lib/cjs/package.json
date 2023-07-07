@@ -2,7 +2,7 @@
   "name": "mobiletto-common",
   "type": "commonjs",
   "main": "./index.js",
-  "homepage": "https://github.com/cobbzilla/mobiletto-common",
+  "homepage": "https://github.com/cobbzilla/mobiletto",
   "author": "Jonathan Cobb <bqppl0m2@duck.com> (https://github.com/cobbzilla)",
   "funding": {
     "type": "patreon",
