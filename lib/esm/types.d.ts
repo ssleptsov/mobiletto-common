@@ -60,10 +60,11 @@ export type MobilettoPatchable = {
 };
 export type MobilettoFunctions = Record<string, (client: MobilettoMinimalClient) => (...params: any[]) => any>;
 export type MobilettoConflictFunction = (m: MobilettoMinimalClient, s: string) => boolean;
+export type MobilettoFeatureFlagName = "list_tryMetaIfEmpty";
 export type MobilettoFeatureFlags = {
     list_tryMetaIfEmpty?: boolean;
+    [func: string]: boolean | undefined;
 };
-export type MobilettoFeatureFlagName = "list_tryMetaIfEmpty";
 export type MobilettoMinimalClient = MobilettoPatchable & {
     testConfig: () => unknown;
     list: (pth?: string, optsOrRecursive?: MobilettoListOptions | boolean, visitor?: MobilettoVisitor) => Promise<MobilettoMetadata[]>;

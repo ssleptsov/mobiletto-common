@@ -63,11 +63,12 @@ export type MobilettoFunctions = Record<string, (client: MobilettoMinimalClient)
 export type MobilettoConflictFunction = (m: MobilettoMinimalClient, s: string) => boolean;
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
+export type MobilettoFeatureFlagName = "list_tryMetaIfEmpty";
+
 export type MobilettoFeatureFlags = {
     list_tryMetaIfEmpty?: boolean;
+    [func: string]: boolean | undefined;
 };
-
-export type MobilettoFeatureFlagName = "list_tryMetaIfEmpty";
 
 export type MobilettoMinimalClient = MobilettoPatchable & {
     testConfig: () => unknown;
