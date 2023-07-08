@@ -67,6 +67,8 @@ export type MobilettoFeatureFlags = {
     list_tryMetaIfEmpty?: boolean;
 };
 
+export type MobilettoFeatureFlagName = "list_tryMetaIfEmpty";
+
 export type MobilettoMinimalClient = MobilettoPatchable & {
     testConfig: () => unknown;
     list: (

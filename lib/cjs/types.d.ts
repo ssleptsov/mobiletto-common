@@ -63,6 +63,7 @@ export type MobilettoConflictFunction = (m: MobilettoMinimalClient, s: string) =
 export type MobilettoFeatureFlags = {
     list_tryMetaIfEmpty?: boolean;
 };
+export type MobilettoFeatureFlagName = "list_tryMetaIfEmpty";
 export type MobilettoMinimalClient = MobilettoPatchable & {
     testConfig: () => unknown;
     list: (pth?: string, optsOrRecursive?: MobilettoListOptions | boolean, visitor?: MobilettoVisitor) => Promise<MobilettoMetadata[]>;
