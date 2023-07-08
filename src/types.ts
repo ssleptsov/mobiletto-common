@@ -63,6 +63,10 @@ export type MobilettoFunctions = Record<string, (client: MobilettoMinimalClient)
 export type MobilettoConflictFunction = (m: MobilettoMinimalClient, s: string) => boolean;
 /* eslint-enable @typescript-eslint/no-explicit-any */
 
+export type MobilettoFeatureFlags = {
+    list_tryMetaIfEmpty?: boolean;
+};
+
 export type MobilettoMinimalClient = MobilettoPatchable & {
     testConfig: () => unknown;
     list: (
@@ -78,4 +82,5 @@ export type MobilettoMinimalClient = MobilettoPatchable & {
         optsOrRecursive?: MobilettoRemoveOptions | boolean,
         quiet?: boolean
     ) => Promise<string | string[]>;
+    flags?: () => MobilettoFeatureFlags;
 };

@@ -60,6 +60,9 @@ export type MobilettoPatchable = {
 };
 export type MobilettoFunctions = Record<string, (client: MobilettoMinimalClient) => (...params: any[]) => any>;
 export type MobilettoConflictFunction = (m: MobilettoMinimalClient, s: string) => boolean;
+export type MobilettoFeatureFlags = {
+    list_tryMetaIfEmpty?: boolean;
+};
 export type MobilettoMinimalClient = MobilettoPatchable & {
     testConfig: () => unknown;
     list: (pth?: string, optsOrRecursive?: MobilettoListOptions | boolean, visitor?: MobilettoVisitor) => Promise<MobilettoMetadata[]>;
@@ -67,4 +70,5 @@ export type MobilettoMinimalClient = MobilettoPatchable & {
     read: (path: string, callback: (chunk: Buffer) => void, endCallback?: () => void) => Promise<number>;
     write: (path: string, data: MobilettoWriteSource) => Promise<number>;
     remove: (path: string, optsOrRecursive?: MobilettoRemoveOptions | boolean, quiet?: boolean) => Promise<string | string[]>;
+    flags?: () => MobilettoFeatureFlags;
 };
