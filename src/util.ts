@@ -7,12 +7,12 @@ export const isAsyncGenerator = (func: any) => func[Symbol.toStringTag] === "Asy
 export const isReadable = (thing: any) =>
     thing instanceof ReadStream || thing instanceof Transform || thing instanceof Readable;
 
-export async function readStream(stream: any, callback: (data: any[]) => void, endCallback: () => void) {
+export async function readStream(stream: any, callback: (data: any) => void, endCallback?: () => void) {
     const counter = { count: 0 };
     const streamHandler = (stream: any) =>
         new Promise<void>((resolve, reject) => {
             stream.on("data", (data: any) => {
-                counter.count += data ? data.length : 0;
+                counter.count += data && data.length ? data.length : 0;
                 callback(data);
             });
             stream.on("error", reject);
