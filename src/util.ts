@@ -2,6 +2,7 @@
 import { ReadStream } from "fs";
 import { Readable, Transform } from "stream";
 import { logger } from "./logger.js";
+import crypto from "crypto";
 
 export const isAsyncGenerator = (func: any) => func[Symbol.toStringTag] === "AsyncGenerator";
 export const isReadable = (thing: any) =>
@@ -49,3 +50,5 @@ export function closeStream(stream: any) {
             }
         });
 }
+
+export const rand = (len: number) => crypto.randomBytes(len).toString("hex").substring(0, len);
