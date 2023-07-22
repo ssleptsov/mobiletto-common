@@ -1,6 +1,6 @@
 {
   "name": "mobiletto-common",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "type": "module",
   "description": "Common constants and functions used by mobiletto and mobiletto storage drivers",
   "keywords": [
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cobbzilla/mobiletto-common"
+    "url": "https://github.com/cobbzilla/mobiletto-common.git"
   },
   "license": "Apache-2.0",
   "scripts": {
