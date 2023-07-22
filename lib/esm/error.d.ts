@@ -1,8 +1,8 @@
 export declare class MobilettoError extends Error {
-    private readonly err?;
+    readonly err?: any;
     constructor(message: string, err?: any);
 }
 export declare class MobilettoNotFoundError extends Error {
-    private readonly id;
+    readonly id: any;
     constructor(id: any);
 }

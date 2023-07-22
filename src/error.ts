@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export class MobilettoError extends Error {
-    private readonly err?: any;
+    readonly err?: any;
     constructor(message: string, err?: any) {
         super(`${message}: ${err ? err : ""}`);
         this.err = err;
@@ -16,7 +16,7 @@ export class MobilettoError extends Error {
 }
 
 export class MobilettoNotFoundError extends Error {
-    private readonly id: any;
+    readonly id: any;
     constructor(id: any) {
         super(`MobilettoNotFoundError: ${id}`);
         this.stack = new Error().stack;
