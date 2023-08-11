@@ -75,8 +75,8 @@ export type MobilettoDriverScope = "local" | "global";
 
 export type MobilettoDriverInfo = {
     driver: string;
-    version?: string;
     scope: MobilettoDriverScope;
+    canonicalName: () => string;
 };
 
 export type MobilettoMinimalClient = MobilettoPatchable & {
