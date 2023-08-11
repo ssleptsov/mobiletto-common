@@ -65,12 +65,19 @@ export type MobilettoFeatureFlags = {
     list_tryMetaIfEmpty?: boolean;
     [func: string]: boolean | undefined;
 };
+export type MobilettoDriverScope = "local" | "global";
+export type MobilettoDriverInfo = {
+    driver: string;
+    version?: string;
+    scope: MobilettoDriverScope;
+};
 export type MobilettoMinimalClient = MobilettoPatchable & {
     testConfig: () => unknown;
+    info: () => MobilettoDriverInfo;
+    flags?: () => MobilettoFeatureFlags;
     list: (pth?: string, optsOrRecursive?: MobilettoListOptions | boolean, visitor?: MobilettoVisitor) => Promise<MobilettoMetadata[]>;
     metadata: (path: string) => Promise<MobilettoMetadata>;
     read: (path: string, callback: (chunk: Buffer) => void, endCallback?: () => void) => Promise<number>;
     write: (path: string, data: MobilettoWriteSource) => Promise<number>;
     remove: (path: string, optsOrRecursive?: MobilettoRemoveOptions | boolean, quiet?: boolean) => Promise<string | string[]>;
-    flags?: () => MobilettoFeatureFlags;
 };

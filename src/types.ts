@@ -60,8 +60,9 @@ export type MobilettoPatchable = {
     [func: string]: any;
 };
 export type MobilettoFunctions = Record<string, (client: MobilettoMinimalClient) => (...params: any[]) => any>;
-export type MobilettoConflictFunction = (m: MobilettoMinimalClient, s: string) => boolean;
 /* eslint-enable @typescript-eslint/no-explicit-any */
+
+export type MobilettoConflictFunction = (m: MobilettoMinimalClient, s: string) => boolean;
 
 export type MobilettoFeatureFlagName = "list_tryMetaIfEmpty";
 
@@ -70,8 +71,18 @@ export type MobilettoFeatureFlags = {
     [func: string]: boolean | undefined;
 };
 
+export type MobilettoDriverScope = "local" | "global";
+
+export type MobilettoDriverInfo = {
+    driver: string;
+    version?: string;
+    scope: MobilettoDriverScope;
+};
+
 export type MobilettoMinimalClient = MobilettoPatchable & {
     testConfig: () => unknown;
+    info: () => MobilettoDriverInfo;
+    flags?: () => MobilettoFeatureFlags;
     list: (
         pth?: string,
         optsOrRecursive?: MobilettoListOptions | boolean,
@@ -85,5 +96,4 @@ export type MobilettoMinimalClient = MobilettoPatchable & {
         optsOrRecursive?: MobilettoRemoveOptions | boolean,
         quiet?: boolean
     ) => Promise<string | string[]>;
-    flags?: () => MobilettoFeatureFlags;
 };
