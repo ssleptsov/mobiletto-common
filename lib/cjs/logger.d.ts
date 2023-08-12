@@ -1,4 +1,11 @@
-import { LogType } from "consola/core";
+import { LogType, ConsolaInstance } from "consola/core";
 export declare const logLevel: (level: LogType) => number;
-export declare const logger: import("consola/dist/core").ConsolaInstance;
-export declare const setLogLevel: (level: LogType | string) => void;
+export type MobilettoLogger = ConsolaInstance & {
+    isWarningEnabled: () => boolean;
+    isNormalEnabled: () => boolean;
+    isInfoEnabled: () => boolean;
+    isDebugEnabled: () => boolean;
+    isTraceEnabled: () => boolean;
+    setLogLevel: (level: LogType | string | number) => void;
+};
+export declare const logger: MobilettoLogger;
