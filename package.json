@@ -1,6 +1,6 @@
 {
   "name": "mobiletto-common",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "type": "module",
   "description": "Common constants and functions used by mobiletto and mobiletto storage drivers",
   "keywords": [
