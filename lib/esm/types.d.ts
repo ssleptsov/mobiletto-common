@@ -54,6 +54,7 @@ export type MobilettoRedisConfig = {
 export type MobilettoOptions = {
     readOnly?: boolean;
     redisConfig: MobilettoRedisConfig;
+    [prop: string]: unknown;
 };
 export type MobilettoPatchable = {
     [func: string]: any;

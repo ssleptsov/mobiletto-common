@@ -53,6 +53,7 @@ export type MobilettoRedisConfig = {
 export type MobilettoOptions = {
     readOnly?: boolean;
     redisConfig: MobilettoRedisConfig;
+    [prop: string]: unknown;
 };
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
