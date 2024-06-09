@@ -21,7 +21,19 @@ export type MobilettoVisitor = (meta: MobilettoMetadata) => Promise<unknown>;
 export type MobilettoListOptions = {
     recursive?: boolean;
     visitor?: MobilettoVisitor;
+    paging?: MobilettoListPaging;
 };
+
+export type MobilettoListPaging = {
+    maxItems: number;
+    continuationToken?: string;
+};
+
+export type MobilettoListOutput = {
+    objects: MobilettoMetadata[];
+    nextPageToken?: string;
+    previousPageToken?: string;
+}
 
 export type MobilettoSyncReadFunc = { next: () => { value: Buffer } };
 export type MobilettoAsyncReadFunc = { next: () => Promise<{ value: Buffer }> };
@@ -88,7 +100,7 @@ export type MobilettoMinimalClient = MobilettoPatchable & {
         pth?: string,
         optsOrRecursive?: MobilettoListOptions | boolean,
         visitor?: MobilettoVisitor
-    ) => Promise<MobilettoMetadata[]>;
+    ) => Promise<MobilettoListOutput>;
     metadata: (path: string) => Promise<MobilettoMetadata>;
     read: (path: string, callback: (chunk: Buffer) => void, endCallback?: () => void) => Promise<number>;
     write: (path: string, data: MobilettoWriteSource) => Promise<number>;
